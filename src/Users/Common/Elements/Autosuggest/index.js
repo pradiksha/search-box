@@ -1,7 +1,7 @@
 import React from "react"
 import Input from "../Input"
+import search from"../../Images/search.svg"
 import "./index.css"
-import { NONAME } from "dns"
 
 export default class Autosuggest extends React.Component {
   state = {
@@ -15,11 +15,11 @@ export default class Autosuggest extends React.Component {
     const { minLengthForApiCall, list } = this.props
     if (value.length >= minLengthForApiCall) {
       list.map((item) => {
-        if(item.id.toLowerCase().includes(value.toLowerCase())) {
+        if (item.id.toLowerCase().includes(value.toLowerCase())) {
           tempList.push(item)
-        } else if(item.name.toLowerCase().includes(value.toLowerCase())) {
+        } else if (item.name.toLowerCase().includes(value.toLowerCase())) {
           tempList.push(item)
-        } else if(item.address.toLowerCase().includes(value.toLowerCase())) {
+        } else if (item.address.toLowerCase().includes(value.toLowerCase())) {
           tempList.push(item)
         }
         return null;
@@ -30,17 +30,43 @@ export default class Autosuggest extends React.Component {
     }
   }
 
+  highlight = ({ text, name, index }) => {
+    const re = new RegExp("(" + text + ")", "gi")
+    const cls = "blue"
+    const template = `<span class=${cls}>${text}</span>`
+    const label = name.replace(re, template)
+    if (index === 1) {
+      return <h4 dangerouslySetInnerHTML={{ __html: label }} />
+    } else if (index === 2) {
+      return <h5 dangerouslySetInnerHTML={{ __html: label }} />
+    } else if (index === 3) {
+      return <p dangerouslySetInnerHTML={{ __html:label }} />
+    }
+
+  }
   renderSuggestions = (list) => {
     if (list.length === 0) {
-      return null
+      return (<ul>
+        <li className="no-user">No User Found</li>
+      </ul>)
     }
+    const { text } = this.state
     return (
       <ul>
         {list.map(item => <li key={item.id} onClick={() => this.suggestionSelected({ item })}>
           <div>
-            <h4>{item.id}</h4>
-            <h5>{item.name}</h5>
-            <p>{item.address}</p>
+            {item.id.toLowerCase().includes(text.toLowerCase()) ?
+              this.highlight({ text, name: item.id, index: 1 })
+              : <h4>{item.id}</h4>
+            }
+            {item.name.toLowerCase().includes(text.toLowerCase()) ?
+              this.highlight({ text, name: item.name, index: 2 })
+              : <h5>{item.name}</h5>
+            }
+            {item.address.toLowerCase().includes(text.toLowerCase()) ?
+              this.highlight({ text, name: item.address, index: 3 })
+              : <p>{item.address}</p>
+            }
           </div>
         </li>)}
       </ul>
@@ -82,7 +108,7 @@ export default class Autosuggest extends React.Component {
   }
 
   render() {
-    const { list, placeholder, className, input, defaultValue, dropDownSearch } = this.props
+    const { placeholder, className, input, defaultValue, dropDownSearch } = this.props
     if (defaultValue) {
       if (dropDownSearch) {
         dropDownSearch(input.value)
@@ -100,6 +126,7 @@ export default class Autosuggest extends React.Component {
       <div className={`as-wrap ${className}`}>
         <div className="as">
           <Input {...inputProps} />
+          <img className="search-img-style" src={search} alt="search" />
           <div className="list" ref={(node) => { this.node = node }}>
             {this.state.showSuggestions && this.renderSuggestions(this.state.stateList)}
           </div>

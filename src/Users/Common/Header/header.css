@@ -1,4 +1,7 @@
-
-.float-right {
-    margin-left: 50%
+.header_container {
+    height: 60px;
+    padding: 18px;
+    background-color: #001f3f;
+    color: #fff;
+    text-transform: uppercase;
 }

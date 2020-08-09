@@ -22,13 +22,13 @@
     border-radius: 0.25rem;
     list-style-type: none;
     text-align: left;
-    margin-left: 140px;
+    margin-left: 221px;
     padding: 0;
     position: absolute;
     background: white;
     max-height: 250px;
     overflow-y: scroll;
-    width: 40%;
+    width: 23%;
     left: 16px;
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
   .as-wrap .as ul::before {
@@ -46,3 +46,16 @@
     cursor: pointer; }
   .as-wrap .as li:hover {
     background-color: rgba(128, 128, 128, 0.2); }
+  .blue {
+    color: blue;
+  }
+  .search-img-style {
+    position: absolute;
+    top:119px;
+    left:514px;
+    width: 16px;
+  }
+  .no-user {
+    height: 80px;
+    margin: 60px;
+  }

@@ -8,14 +8,11 @@ const store = configureStore()
 
 function App() {
   return (
-    <div className="App">
-      <h1> hello world</h1>
-      <Provider store={store}>
-        <div className="App">
-          <Users />
-        </div>
-      </Provider>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Users />
+      </div>
+    </Provider>
   );
 }
 

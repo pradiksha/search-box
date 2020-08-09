@@ -42,7 +42,7 @@ class Input extends Component {
     return (
       <div className="mb-3">
         <div className="d-flex">
-          {label && <label htmlFor={name}>{label}</label>}
+          {label && <label className="label-txt" htmlFor={name}>{label}</label>}
           <input {...inputProps} />
           {isInvalid && <small className="text-danger">{error}</small>}
         </div>
