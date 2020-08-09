@@ -1,0 +1,48 @@
+.as-wrap.type .list ul {
+  margin-top: 250px; }
+
+.as-wrap.cities .list ul {
+  margin-top: 86px; }
+
+.as-wrap.updateCountry .list ul, .as-wrap.updateContinent .list ul {
+  margin-top: 86px; }
+
+.as-wrap.capitalcities .list ul {
+  margin-top: 173px; }
+
+.as-wrap.updateCities .list ul {
+  margin-top: 260px; }
+
+.as-wrap .as {
+  width: 100%;
+  border-radius: 0.25rem;
+  font-size: 1rem; }
+  .as-wrap .as ul {
+    top: 152px;
+    border-radius: 0.25rem;
+    list-style-type: none;
+    text-align: left;
+    margin-left: 140px;
+    padding: 0;
+    position: absolute;
+    background: white;
+    max-height: 250px;
+    overflow-y: scroll;
+    width: 40%;
+    left: 16px;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
+  .as-wrap .as ul::before {
+    content: " ";
+    border-left: 13px solid transparent;
+    position: absolute;
+    top: -26px;
+    margin: 0 auto;
+    left: 3%;
+    border-right: 13px solid transparent;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid #fff; }
+  .as-wrap .as li {
+    padding: 10px 15px;
+    cursor: pointer; }
+  .as-wrap .as li:hover {
+    background-color: rgba(128, 128, 128, 0.2); }
